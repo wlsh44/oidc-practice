@@ -1,3 +1,3 @@
 # oidc-practice
 
-google OIDC Practice repository
+OIDC Practice repository
