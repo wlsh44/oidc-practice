@@ -1,4 +1,4 @@
-package com.example.oidcpractice;
+package com.example.oidcpractice.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -8,8 +8,8 @@ import java.util.List;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "oauth.google")
-public class GoogleProperties {
+@ConfigurationProperties(prefix = "oauth.kakao")
+public class KakaoProperties {
     private String clientId;
     private String clientSecret;
     private String grantType;

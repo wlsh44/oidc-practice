@@ -1,5 +1,7 @@
-package com.example.oidcpractice;
+package com.example.oidcpractice.client;
 
+import com.example.oidcpractice.properties.KakaoProperties;
+import com.example.oidcpractice.controller.dto.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -12,11 +14,11 @@ import java.net.URI;
 
 @Component
 @RequiredArgsConstructor
-public class GoogleClient implements OAuthClient {
+public class KakaoClient implements OAuthClient {
 
-    public static final String SCOPE_DELIMITER = " ";
+    public static final String SCOPE_DELIMITER = ",";
 
-    private final GoogleProperties properties;
+    private final KakaoProperties properties;
 
     @Override
     public URI getAuthenticationURI() {
@@ -46,6 +48,11 @@ public class GoogleClient implements OAuthClient {
                 .retrieve()
                 .bodyToMono(TokenResponse.class)
                 .block();
+    }
+
+    @Override
+    public OAuthProvider getPlatform() {
+        return OAuthProvider.KAKAO;
     }
 
     private MultiValueMap<String, String> getTokenUriFormData(String code) {
